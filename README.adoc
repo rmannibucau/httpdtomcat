@@ -1,0 +1,10 @@
+= AJP httpd-tomcat sample
+
+This sample sets up a Tomcat/HTTPD through docker-compose - without any secret.
+
+IMPORTANT: for production use, ensure to set up a secret.
+
+== Files
+
+- `httpd` folder contains a simplified configuration of httpd server to redirect `/examples/` requests to tomcat.
+- `tomcat` folder contains a simplified configuration of tomcat to enable AJP connector - without a secret. Note it binds the connect on `tomcat` host to let httpd connect to it.

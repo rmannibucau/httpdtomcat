@@ -1,0 +1,25 @@
+version: '3'
+
+#
+# Start this compose descriptor then hit:
+# http://localhost:8000/examples/servlets/servlet/HelloWorldExample
+#
+
+services:
+    httpd:
+        image: httpd:2.4.46
+        ports:
+            - 8000:80
+        volumes:
+            - ./httpd/conf/ajp.conf:/usr/local/apache2/conf/httpd.conf:ro
+            - ./httpd/conf/workers.properties:/usr/local/apache2/conf/workers.properties:ro
+
+    tomcat:
+        image: tomcat:10.0.0-jdk8-openjdk-slim-buster
+        # for debug purposes
+        ports:
+            - 8009:8009
+        volumes:
+            - ./tomcat/conf/server.xml:/usr/local/tomcat/conf/server.xml:ro
+        
+        
